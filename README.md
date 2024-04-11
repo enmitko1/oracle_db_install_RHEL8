@@ -36,3 +36,7 @@ Si se tiene una máquina con RHEL8 preparada saltarse el primer paso, en caso co
 
    Comprobamos que la modificación tenga efecto:
    grubby --info /boot/vmlinuz-4.18.0-513.24.1.el8_9.x86_64
+
+5. Creamos los directorios necesarios para la base de datos y scripts adicionales, lanzando el script create_directories.sh disponible en el repositorio:
+
+   sh create_directories.sh
