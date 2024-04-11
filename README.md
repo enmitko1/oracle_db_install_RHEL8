@@ -46,3 +46,14 @@ DESDE AQUÍ REALIZAMOS TODOS LOS PASOS CON ROOT
 7. Creamos los directorios necesarios para la base de datos y scripts adicionales, lanzando el script create_directories.sh disponible en el repositorio:
 
    sh create_directories.sh
+
+
+DESDE AQUÍ REALIZAMOS TODOS LOS PASOS COMO EL USUARIO oracle
+
+8. Creamos script para cargar las variables del sistema de nuestra futura base de datos, lanzando el script create_envvar_script.sh existente en el repositorio:
+
+   sh create_envvar_script.sh
+
+9. Creamos los scripts de arranque y parada de la base de datos, usamos el scripts create_start_stop_scripts.sh existente en el repositorio:
+
+    sh create_start_stop_scripts.sh
