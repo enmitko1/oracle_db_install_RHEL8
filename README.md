@@ -6,12 +6,15 @@ Si se tiene una máquina con RHEL8 preparada saltarse el primer paso, en caso co
 0. En el siguiente enlace existe una guía detallada de como preparar una máquina virtual con RHEL8:
    https://developers.redhat.com/rhel8/install-rhel8-vbox#
 
-1. Realizada la preparación de nuestro sistema RHEL8 pasaremos a preparar el sistema para la base de datos Oracle 19c, empezando por los prerequisitos del sistema siguiendo las buenas prácticas de Oracle:
+DESDE AQUÍ REALIZAMOS TODOS LOS PASOS CON ROOT
+
+
+2. Realizada la preparación de nuestro sistema RHEL8 pasaremos a preparar el sistema para la base de datos Oracle 19c, empezando por los prerequisitos del sistema siguiendo las buenas prácticas de Oracle:
    Ejecutamos el script prereq_settings.sh existente en este repositorio:
 
    sh prereq_settings.sh
 
-2. Configurar la seguridad de Linux a permisiva modifcando el fichero /etc/selinux/config editando los siguientes parámetros con los valores indicados a continuación y después debemos reiniciar el sistema para que los cambios tomen efecto:
+3. Configurar la seguridad de Linux a permisiva modifcando el fichero /etc/selinux/config editando los siguientes parámetros con los valores indicados a continuación y después debemos reiniciar el sistema para que los cambios tomen efecto:
 
    SELINUX=permissive
 
