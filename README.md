@@ -91,3 +91,26 @@ En este punto debemos tener en el host el zip conteniendo el software Oracle 19c
    Este script toma como ruta donde está almacenado el zip del software Oracle /home/oracle, si el zip está en otra ruta se debe modificar el script con la ruta correcta
 
    sh install_software_ora19c.sh
+
+10. Creamos la base de datos Oracle 19c Multitenant usando el script create_database.sh existente en el repositorio:
+
+    El script creará una contenedora y una PDB con los mismos nombres definidos en el script de variables.
+
+    Lanzamos la creación con:
+
+    sh create_database.sh
+
+11. Editamos el fichero /etc/oratab para poner la entrada de la base de datos a Y para permitir el arranque automática al iniciar la máquina:
+
+    Un ejemplo de entrada de una CDB sería:
+
+    cdb1:/u01/app/oracle/product/19.0.0/dbhome_1:Y
+
+
+CON ESTO HEMOS FINALIZADO LA CREACIÓN DE UNA BASE DE DATOS ORACLE 19C EN UN RHEL8
+
+BIBLIOGRAFÍA:
+
+Este repositorio está hecho mayormente gracias a la guía de la WEB oracle-base.com. La URL de la guía completa y detallada es la siguiente:
+
+https://oracle-base.com/articles/19c/oracle-db-19c-installation-on-oracle-linux-8
