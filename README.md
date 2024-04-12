@@ -8,6 +8,27 @@ Si se tiene una máquina con RHEL8 preparada saltarse el primer paso, en caso co
 
 DESDE AQUÍ REALIZAMOS TODOS LOS PASOS CON ROOT
 
+1. Añadimos la entrada referente al FQDN, Fully Qualified Domain Name, del host en el archivo /etc/hosts:
+
+   Revisamos el nombre completo del host en el /etc/hostname mediante el siguiente comando:
+
+   cat /etc/hostname
+
+   La ip del host la podemos revisando el comando ifconfig.
+
+   Añadimos los datos anteriores a /etc/hosts, al final del fichero con la siguiente estructura:
+
+   <IP-address>  <fully-qualified-machine-name>  <machine-name>
+
+   El fichero /etc/hosts debe quedar así, por ejemplo:
+
+   cat /etc/hosts
+   
+   127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+   
+   ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+   192.168.1.12 rhel8.localdomain rhel8
 
 2. Realizada la preparación de nuestro sistema RHEL8 pasaremos a preparar el sistema para la base de datos Oracle 19c, empezando por los prerequisitos del sistema siguiendo las buenas prácticas de Oracle:
    Ejecutamos el script prereq_settings.sh existente en este repositorio:
@@ -29,7 +50,7 @@ DESDE AQUÍ REALIZAMOS TODOS LOS PASOS CON ROOT
 
    systemctl disable firewalld
 
-6. Desactivamos las Hugepages transparentes, activas en RHEL8 por defecto, se debe reiniciar el sistema una vez se termine la configuración siguiente:
+5. Desactivamos las Hugepages transparentes, activas en RHEL8 por defecto, se debe reiniciar el sistema una vez se termine la configuración siguiente:
 
    Comprobamos que estén activas con el siguiente comando:
    cat /sys/kernel/mm/transparent_hugepage/enabled ## Si aparece la salida, [always] madvise never, significa que están activas y hay que desactivarlas
@@ -43,17 +64,17 @@ DESDE AQUÍ REALIZAMOS TODOS LOS PASOS CON ROOT
    Comprobamos que la modificación tenga efecto:
    grubby --info /boot/vmlinuz-4.18.0-513.24.1.el8_9.x86_64
 
-7. Creamos los directorios necesarios para la base de datos y scripts adicionales, lanzando el script create_directories.sh disponible en el repositorio:
+6. Creamos los directorios necesarios para la base de datos y scripts adicionales, lanzando el script create_directories.sh disponible en el repositorio:
 
    sh create_directories.sh
 
 
 DESDE AQUÍ REALIZAMOS TODOS LOS PASOS COMO EL USUARIO oracle
 
-8. Creamos script para cargar las variables del sistema de nuestra futura base de datos, lanzando el script create_envvar_script.sh existente en el repositorio:
+7. Creamos script para cargar las variables del sistema de nuestra futura base de datos, lanzando el script create_envvar_script.sh existente en el repositorio, este script prepara las variables para una CDB llamada cdb1 y una pdb llamada pdb1, si la contendora o la PDB se llamaran de otra forma se debe modificar el script con los nombres adecuados:
 
    sh create_envvar_script.sh
 
-9. Creamos los scripts de arranque y parada de la base de datos, usamos el scripts create_start_stop_scripts.sh existente en el repositorio:
+8. Creamos los scripts de arranque y parada de la base de datos, usamos el scripts create_start_stop_scripts.sh existente en el repositorio:
 
     sh create_start_stop_scripts.sh
