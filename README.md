@@ -75,6 +75,19 @@ DESDE AQUÍ REALIZAMOS TODOS LOS PASOS COMO EL USUARIO oracle
 
    sh create_envvar_script.sh
 
+Debemos lanzar el fichero de variables cargado para cargar las variables antes de continuar o reiniciar la sesión o el host para que se carguen automáticamente.
+
 8. Creamos los scripts de arranque y parada de la base de datos, usamos el scripts create_start_stop_scripts.sh existente en el repositorio:
 
     sh create_start_stop_scripts.sh
+
+
+COMENZAMOS CON LA INSTALACIÓN DEL SOFTWARE:
+
+En este punto debemos tener en el host el zip conteniendo el software Oracle 19c
+
+9. Lanzamos la instalación del software Oracle 19c con el script install_software_ora19c.sh:
+
+   Este script toma como ruta donde está almacenado el zip del software Oracle /home/oracle, si el zip está en otra ruta se debe modificar el script con la ruta correcta
+
+   sh install_software_ora19c.sh
