@@ -88,7 +88,7 @@ En este punto debemos tener en el host el zip conteniendo el software Oracle 19c
 
 9. Lanzamos la instalación del software Oracle 19c con el script install_software_ora19c.sh:
 
-   Este script toma como ruta donde está almacenado el zip del software Oracle /home/oracle, si el zip está en otra ruta se debe modificar el script con la ruta correcta
+   Este script toma como ruta donde está almacenado el zip del software Oracle en la carpeta donde se descargo el repositorio del Github, si el zip está en otra ruta se debe modificar el script con la ruta correcta
 
    sh install_software_ora19c.sh
 

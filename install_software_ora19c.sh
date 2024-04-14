@@ -2,7 +2,7 @@ cd $ORACLE_HOME
 
 echo "Starting unzipping of the software
 "
-unzip -oq /home/oracle/LINUX.X64_193000_db_home.zip
+unzip -oq LINUX.X64_193000_db_home.zip
 
 echo "Finished unzipping
 "
@@ -13,6 +13,7 @@ export CV_ASSUME_DISTID=OEL7.6
 echo "Starting software installation
 "
 # Silent mode.
+
 ./runInstaller -ignorePrereq -waitforcompletion -silent                        \
     -responseFile ${ORACLE_HOME}/install/response/db_install.rsp               \
     oracle.install.option=INSTALL_DB_SWONLY                                    \
