@@ -89,7 +89,7 @@ groupadd -g 54321 oinstall
 groupadd -g 54322 dba
 groupadd -g 54323 oper
 
-usermod -u 54321 -g oinstall -G dba,oper oracle
+usermod -u 54321 -g oinstall -G dba,oper,wheel oracle
 
 echo "Finished with groups creation
 "
