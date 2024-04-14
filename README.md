@@ -14,7 +14,7 @@ DESDE AQUÍ REALIZAMOS TODOS LOS PASOS CON ROOT
 
    cat /etc/hostname
 
-   La ip del host la podemos revisando el comando ifconfig.
+   La ip del host la podemos revisar con el comando ifconfig.
 
    Añadimos los datos anteriores a /etc/hosts, al final del fichero con la siguiente estructura:
 
