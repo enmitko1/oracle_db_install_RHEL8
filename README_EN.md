@@ -26,27 +26,25 @@ cat /etc/hosts
 
 192.168.1.12 rhel8.localdomain rhel8
 
-2. Realizada la preparación de nuestro sistema RHEL8 pasaremos a preparar el sistema para la base de datos Oracle 19c, empezando por los prerequisitos del sistema siguiendo las buenas prácticas de Oracle: Ejecutamos el script prereq_settings.sh existente en este repositorio:
+2. Now we start preparing our system for the Oracle 19c database, starting with the prerequisites for the system following the Oracle good practices recommendations: Run the script prereq_settings.sh existing in the repository:
 
 sh prereq_settings.sh
 
-3. Configurar la seguridad de Linux a permisiva modifcando el fichero /etc/selinux/config editando los siguientes parámetros con los valores indicados a continuación y después debemos reiniciar el sistema para que los cambios tomen efecto:
+3. Change the Linux security settings to permissive modifying the file /etc/selinux/config editing the next parameter with the value indicated, afterwards it's necessary to reboot the system for the changes to be effective:
 
 SELINUX=permissive
 
-setenforce Permissive
+4. Disable the Linux firewall , otherwise if it's necessary to let it active it can be configured correctly for the Oracle database to work following the guide present at the web: https://oracle-base.com/articles/linux/linux-firewall-firewalld
 
-4. Desactivamos el firewall de Linux, en caso de querer dejarlo activo se puede configurar adecuadamente para que funcione la base de datos oracle siguiendo la guía siguiente: https://oracle-base.com/articles/linux/linux-firewall-firewalld
-
-Para desactivar el firewall hacemos:
+To disable the firewall run:
 
 systemctl stop firewalld
 
 systemctl disable firewalld
 
-5. Desactivamos las Hugepages transparentes, activas en RHEL8 por defecto, se debe reiniciar el sistema una vez se termine la configuración siguiente:
+5. Disable the transparent hugepages, active in RHEL8 by default, the system has to be rebooted once the hugepages configuration has been changed:
 
-Comprobamos que estén activas con el siguiente comando: cat /sys/kernel/mm/transparent_hugepage/enabled ## Si aparece la salida, [always] madvise never, significa que están activas y hay que desactivarlas
+Verify the trasparent hugepages are active running the next command: cat /sys/kernel/mm/transparent_hugepage/enabled ## if the output is, [always] madvise never, it means that the trasparent hugepages are active and they have to be disabled
 
 Comprobaos el kernel por defecto usado en el sistema y lo copiamos para usarlo en el siguiente comando: grubby --default-kernel
 
