@@ -92,7 +92,13 @@ En este punto debemos tener en el host el zip conteniendo el software Oracle 19c
 
    sh install_software_ora19c.sh
 
-10. Creamos la base de datos Oracle 19c Multitenant usando el script create_database.sh existente en el repositorio:
+   Una vez finalice de instalarse el software se debe ejecutar como root los siguientes scripts:
+
+   /u01/app/oraInventory/orainstRoot.sh
+
+   /u01/app/oracle/product/19.0.0/dbhome_1/root.sh
+
+11. Creamos la base de datos Oracle 19c Multitenant usando el script create_database.sh existente en el repositorio:
 
     El script creará una contenedora y una PDB con los mismos nombres definidos en el script de variables.
 
@@ -100,7 +106,7 @@ En este punto debemos tener en el host el zip conteniendo el software Oracle 19c
 
     sh create_database.sh
 
-11. Editamos el fichero /etc/oratab para poner la entrada de la base de datos a Y para permitir el arranque automática al iniciar la máquina:
+12. Editamos el fichero /etc/oratab para poner la entrada de la base de datos a Y para permitir el arranque automática al iniciar la máquina:
 
     Un ejemplo de entrada de una CDB sería:
 
