@@ -6,17 +6,17 @@ If there is a host with RHEL8 ready to be used this step can be omitted, otherwi
 
 FROM HERE THE NMEXT STEPS HAVE TO BE DONE AS THE ROOT USER
 
-1. Añadimos la entrada referente al FQDN, Fully Qualified Domain Name, del host en el archivo /etc/hosts:
+1. Add the entry referencing the FQDN, Fully Qualified Domain Name, of the host in the file /etc/hosts:
 
-Revisamos el nombre completo del host en el /etc/hostname mediante el siguiente comando:
+We can inspect the full name of the host in the file /etc/hostname using the next command:
 
 cat /etc/hostname
 
-La ip del host la podemos revisar con el comando ifconfig.
+The ip of the host can be seen using the command ifconfig.
 
-Añadimos los datos anteriores a /etc/hosts, al final del fichero con la siguiente estructura:
+We add this data to /etc/hosts, both the ip and the full name of the machine as one entrance at the end of the file following the next structure:
 
-El fichero /etc/hosts debe quedar así, por ejemplo:
+The file /etc/hosts has to end up like this, for example:
 
 cat /etc/hosts
 
