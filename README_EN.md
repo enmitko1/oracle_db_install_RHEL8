@@ -4,7 +4,7 @@ If there is a host with RHEL8 ready to be used this step can be omitted, otherwi
 
 0. In the next link there is a detailed guide on how to prepare a virtual machine with RHEL8: https://developers.redhat.com/rhel8/install-rhel8-vbox#
 
-FROM HERE THE NMEXT STEPS HAVE TO BE DONE AS THE ROOT USER
+FROM HERE THE NEXT STEPS HAVE TO BE DONE AS THE ROOT USER
 
 1. Add the entry referencing the FQDN, Fully Qualified Domain Name, of the host in the file /etc/hosts:
 
@@ -46,23 +46,25 @@ systemctl disable firewalld
 
 Verify the trasparent hugepages are active running the next command: cat /sys/kernel/mm/transparent_hugepage/enabled ## if the output is, [always] madvise never, it means that the trasparent hugepages are active and they have to be disabled
 
-Comprobaos el kernel por defecto usado en el sistema y lo copiamos para usarlo en el siguiente comando: grubby --default-kernel
+Review the default kernel used in our system and we copy it: grubby --default-kernel
 
-Modificamos los parámetros del kernel: grubby --args="transparent_hugepage=never" --update-kernel /boot/vmlinuz-4.18.0-513.24.1.el8_9.x86_64
+Modify the parameters of the default kernel to disable the transparent hugepages: grubby --args="transparent_hugepage=never" --update-kernel /boot/vmlinuz-4.18.0-513.24.1.el8_9.x86_64
 
-Comprobamos que la modificación tenga efecto: grubby --info /boot/vmlinuz-4.18.0-513.24.1.el8_9.x86_64
+Review the kernel parameters once more to verify the changes hace taken effect: grubby --info /boot/vmlinuz-4.18.0-513.24.1.el8_9.x86_64
 
-6. Creamos los directorios necesarios para la base de datos y scripts adicionales, lanzando el script create_directories.sh disponible en el repositorio:
+6. Create the directories necessary for the software, database data and additional scripts, run the script create_directories.sh available in the repository:
 
 sh create_directories.sh
 
-DESDE AQUÍ REALIZAMOS TODOS LOS PASOS COMO EL USUARIO oracle
+FROM HERE ALL STEPS HAVE TO BE DONE AS USER oracle
 
-7. Creamos script para cargar las variables del sistema de nuestra futura base de datos, lanzando el script create_envvar_script.sh existente en el repositorio, este script prepara las variables para una CDB llamada cdb1 y una pdb llamada pdb1, si la contendora o la PDB se llamaran de otra forma se debe modificar el script con los nombres adecuados:
+7. Create the script to load all system variables needed for the future database, run the script create_envvar_script.sh available in the repository, the created script prepares the variables for a container database called cdb1 and a pdb called pdb1, if the CDB or the PDB are named otherwise we have to modify the script with the right names:
 
 sh create_envvar_script.sh
 
-Debemos lanzar el fichero de variables cargado para cargar las variables antes de continuar o reiniciar la sesión o el host para que se carguen automáticamente.
+It's necessary to run the created script to load the variables for the database or otherwise reboot the session or the host to load the variables automatically. To run the created script use:
+
+. ./nombre_script.sh
 
 8. Creamos los scripts de arranque y parada de la base de datos, usamos el scripts create_start_stop_scripts.sh existente en el repositorio:
 
