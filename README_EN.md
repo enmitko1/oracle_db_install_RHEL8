@@ -66,7 +66,7 @@ It's necessary to run the created script to load the variables for the database 
 
 . /home/oracle/scripts/setEnv.sh
 
-8. Creamos los scripts de arranque y parada de la base de datos, usamos el scripts create_start_stop_scripts.sh existente en el repositorio:
+8. Create the scripts to start and stop the database, run the script create_start_stop_scripts.sh available in the repository:
 
 sh create_start_stop_scripts.sh
 
