@@ -75,7 +75,9 @@ DESDE AQUÍ REALIZAMOS TODOS LOS PASOS COMO EL USUARIO oracle
 
    sh create_envvar_script.sh
 
-Debemos lanzar el fichero de variables cargado para cargar las variables antes de continuar o reiniciar la sesión o el host para que se carguen automáticamente.
+Debemos lanzar el fichero de variables cargado para cargar las variables antes de continuar o reiniciar la sesión o el host para que se carguen automáticamente. Para lanzar el script que cargar las variables usamos:
+
+. /home/oracle/scripts/setEnv.sh
 
 8. Creamos los scripts de arranque y parada de la base de datos, usamos el scripts create_start_stop_scripts.sh existente en el repositorio:
 
