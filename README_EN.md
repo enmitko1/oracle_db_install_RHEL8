@@ -70,35 +70,35 @@ It's necessary to run the created script to load the variables for the database 
 
 sh create_start_stop_scripts.sh
 
-COMENZAMOS CON LA INSTALACIÓN DEL SOFTWARE:
+INSTALATION OF THE ORACLE 19C SOFTWARE:
 
-En este punto debemos tener en el host el zip conteniendo el software Oracle 19c
+At this point it's necessary to have the zip with the Oracle software in the host.
 
-9. Lanzamos la instalación del software Oracle 19c con el script install_software_ora19c.sh:
+9. Start the instalation of the Oracle software running the script install_software_ora19c.sh:
 
-Este script toma como ruta donde está almacenado el zip del software Oracle en la carpeta donde se descargo el repositorio del Github, si el zip está en otra ruta se debe modificar el script con la ruta correcta
+This script by default expects the zip with the software to be stored at the same directory where the script is, if the zip is in other directory it's necessary to modify the script with the correct path.
 
 sh install_software_ora19c.sh
 
-10. Creamos la base de datos Oracle 19c Multitenant usando el script create_database.sh existente en el repositorio:
+10. Create the Oracle 19c database using the script create_database.sh available at the repository:
 
-El script creará una contenedora y una PDB con los mismos nombres definidos en el script de variables.
+The script will create a Multitenant database and a PDB with the same names as the defined in the variables script.
 
-Lanzamos la creación con:
+Start the creation of the database using:
 
 sh create_database.sh
 
-11. Editamos el fichero /etc/oratab para poner la entrada de la base de datos a Y para permitir el arranque automática al iniciar la máquina:
+11. Edit the file /etc/oratab to set the entry for the new database to Y, permitting this way the automatic start of the database:
 
-Un ejemplo de entrada de una CDB sería:
+An exemple of the modified entry:
 
 cdb1:/u01/app/oracle/product/19.0.0/dbhome_1:Y
 
-CON ESTO HEMOS FINALIZADO LA CREACIÓN DE UNA BASE DE DATOS ORACLE 19C EN UN RHEL8
+AT THIS POINT WE HAVE FINISHED CREATING OUR NEW ORACLE 19C MULTITENANT DATABASE IN A RHEL8
 
 
-BIBLIOGRAFÍA:
+REFERENCES:
 
-Este repositorio está hecho mayormente gracias a la guía de la WEB oracle-base.com. La URL de la guía completa y detallada es la siguiente:
+This repository has been created mainly thanks to the guide of the web oracle-base.com. The URL of the complete and detailed guide is the following:
 
 https://oracle-base.com/articles/19c/oracle-db-19c-installation-on-oracle-linux-8
