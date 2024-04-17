@@ -80,6 +80,12 @@ This script by default expects the zip with the software to be stored at the sam
 
 sh install_software_ora19c.sh
 
+Once the installation is finished it's necessary to run as root the next Oracle scripts:
+
+/u01/app/oraInventory/orainstRoot.sh
+
+/u01/app/oracle/product/19.0.0/dbhome_1/root.sh
+
 10. Create the Oracle 19c database using the script create_database.sh available at the repository:
 
 The script will create a Multitenant database and a PDB with the same names as the defined in the variables script.
