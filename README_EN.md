@@ -14,7 +14,7 @@ cat /etc/hostname
 
 The ip of the host can be seen using the command ifconfig.
 
-We add this data to /etc/hosts, both the ip and the full name of the machine as one entrance at the end of the file following the next structure:
+We add this data to /etc/hosts, both the ip and the full name of the machine as one entrance at the end of the file:
 
 The file /etc/hosts has to end up like this, for example:
 
@@ -50,7 +50,7 @@ Review the default kernel used in our system and we copy it: grubby --default-ke
 
 Modify the parameters of the default kernel to disable the transparent hugepages: grubby --args="transparent_hugepage=never" --update-kernel /boot/vmlinuz-4.18.0-513.24.1.el8_9.x86_64
 
-Review the kernel parameters once more to verify the changes hace taken effect: grubby --info /boot/vmlinuz-4.18.0-513.24.1.el8_9.x86_64
+Review the kernel parameters once more to verify the changes have taken effect: grubby --info /boot/vmlinuz-4.18.0-513.24.1.el8_9.x86_64
 
 6. Create the directories necessary for the software, database data and additional scripts, run the script create_directories.sh available in the repository:
 
