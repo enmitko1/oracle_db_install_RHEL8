@@ -64,7 +64,7 @@ sh create_envvar_script.sh
 
 It's necessary to run the created script to load the variables for the database or otherwise reboot the session or the host to load the variables automatically. To run the created script use:
 
-. /home/oracle/scripts/setEnv.sh
+.   /home/oracle/scripts/setEnv.sh
 
 8. Create the scripts to start and stop the database, run the script create_start_stop_scripts.sh available in the repository:
 
