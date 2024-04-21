@@ -76,7 +76,7 @@ At this point it's necessary to have the zip with the Oracle software in the hos
 
 9. Start the instalation of the Oracle software running the script install_software_ora19c.sh:
 
-This script by default expects the zip with the software to be stored at the same directory where the script is, if the zip is in other directory it's necessary to modify the script with the correct path.
+This script by default expects the zip with the software to be stored at the future ORACLE_HOME, if the zip is in other directory it's necessary to modify the script with the correct path and modify the unzip command to extract the content to the ORACLE_HOME.
 
 sh install_software_ora19c.sh
 
